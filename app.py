@@ -1,4 +1,3 @@
-
 from flask import Flask, jsonify, request
 import requests
 from flask_cors import CORS
@@ -12,7 +11,7 @@ def get_player_data():
         player_url = request.args.get('url')
         if not player_url:
             return jsonify({"error": "A URL do player não foi fornecida."}), 400
-        
+
         response = requests.get(player_url)
         if response.status_code != 200:
             return jsonify({"error": "Erro ao acessar o player."}), 500
